@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, input, Input, InputSignal } from '@angular/core';
+import { Creature } from '../../models/creature.models';
 
 @Component({
   selector: 'app-playing-card',
@@ -7,5 +8,26 @@ import { Component } from '@angular/core';
   styleUrl: './playing-card.component.scss'
 })
 export class PlayingCardComponent {
+
+  //  Exemple d'input
+  // @Input({
+  //   required: true,
+  //   alias: "my-creature",
+  //   transform : (value : Creature) => {
+  //     value.name = "Hello"
+  //     return value;
+  //   }
+  // }) 
+  
+  // Signal input
+  // creature : InputSignal<Creature> = input.required();
+  creature : InputSignal<Creature> = input(new Creature(), {
+    alias : "my-creature",
+    transform : (value : Creature) => {
+      value.name = "Hello"
+      return value
+    }
+  })
+
 
 }
