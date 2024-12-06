@@ -1,4 +1,4 @@
-import { Component, input, Input, InputSignal } from '@angular/core';
+import { Component, input, InputSignal } from '@angular/core';
 import { Creature } from '../../models/creature.models';
 
 @Component({
@@ -21,13 +21,16 @@ export class PlayingCardComponent {
   
   // Signal input
   // creature : InputSignal<Creature> = input.required();
-  creature : InputSignal<Creature> = input(new Creature(), {
-    alias : "my-creature",
-    transform : (value : Creature) => {
-      value.name = "Hello"
-      return value
-    }
-  })
+  creature : InputSignal<Creature> = input(new Creature());
+
+  //  Avec les alias et les transforms
+  // creature : InputSignal<Creature> = input(new Creature(), {
+  //   alias : "my-creature",
+  //   transform : (value : Creature) => {
+  //     value.name = "Hello"
+  //     return value
+  //   }
+  // })
 
 
 }

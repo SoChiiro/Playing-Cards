@@ -1,4 +1,17 @@
+<app-search-bar 
+    (submit)="increaseCount()" 
+    [(search)]="search"
+    />
+
+    <!-- On peut l'utiliser si on ne met pas de () autour de la variable -->
+    <!-- 2 ways binding -->
+    <!-- (searchChange)="search= $event" -->
+
+Search : {{search}} <br />
+Click count : {{count}}
+
+
 <div id="card-list">
-    <app-playing-card [my-creature]="creature1"/>
-    <app-playing-card [my-creature]="creature1"/>
+    <app-playing-card/>
+
 </div>

@@ -1,16 +1,19 @@
 import { Component } from '@angular/core';
 import { PlayingCardComponent } from "./components/playing-card/playing-card.component";
 import { Creature } from './models/creature.models';
+import { SearchBarComponent } from "./components/search-bar/search-bar.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: `./app.component.scss`,
-  imports: [PlayingCardComponent]
+  imports: [PlayingCardComponent, SearchBarComponent]
 })
 export class AppComponent {
   creature1! : Creature;
+  count : number = 0;
+  search = '';
 
   constructor(){
     this.creature1 = new Creature();
@@ -22,4 +25,10 @@ export class AppComponent {
     À chaque fois qu'une créature que vous possédez, mais que vous ne contrôlez pas attaque, vous piochez une carte.`
     this.creature1.stats = "3/3"
   }
+
+  increaseCount() {
+    this.count++;
+  }
+
+
 }
