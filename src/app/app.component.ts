@@ -59,7 +59,7 @@ export class AppComponent {
     creature3.image = "/img/aragorn.jpg";
     creature3.type = CreatureType.MULTI;
     creature3.figureCaption = "Créature Légendaire : Humain ";
-    creature3.capacity = `La meilleure carte de monde so far`
+    creature3.capacity = `La meilleure carte de monde so far`;
     creature3.stats = "5/5";
     this.creature.push(creature3)
   }
