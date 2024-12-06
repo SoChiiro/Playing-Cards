@@ -1,3 +1,10 @@
+<button (click)="toggleCommander()">Toggle Commander</button>
+
+<div id="card-list">
+    <app-playing-card [creature]="selectedCreature()"/>
+
+</div>
+
 <app-search-bar 
     (submit)="increaseCount()" 
     [(search)]="search"
@@ -7,11 +14,4 @@
     <!-- 2 ways binding -->
     <!-- (searchChange)="search= $event" -->
 
-Search : {{search}} <br />
-Click count : {{count}}
 
-
-<div id="card-list">
-    <app-playing-card/>
-
-</div>

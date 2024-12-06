@@ -1,32 +1,33 @@
 <div id="card">
-    <div id="inside">
+    <div id="inside" [style.background-color]="backgroundColor()">
         <header>
             <div class="left">
                 <div id="name">{{creature().name}}</div>
             </div>
             <div class="right">
                 <!-- <div id="mana-cost">2bbl</div> -->
-                <img class="color-icon" src="/img/1.png" alt="Icon representing the color blue">
-                <img class="color-icon" src="/img/U.webp" alt="Icon representing the color blue">
-                <img class="color-icon" src="/img/B.webp" alt="Icon representing the color noir">
+                <img class="color-icon" [src]="creatureTypeIcon()" alt="Icon representing the color blue">
+                <!-- <img class="color-icon" src="/img/U.webp" alt="Icon representing the color blue">
+                <img class="color-icon" src="/img/B.webp" alt="Icon representing the color noir"> -->
             </div>
         </header>
         <figure id="art">
-            <img src="img/Satoru_Umezawa.webp" >
+            <!-- <img src="img/Satoru_Umezawa.webp" > -->
+             <img [src]="creature().image" />
             <figcaption style="color: white;">{{creature().figureCaption}}</figcaption>
         </figure>
         <div id="capacity">
             <div class="main">
                 <div class="description">{{creature().capacity}}</div>
                 <br />
-                <div class="description">
+                <!-- <div class="description">
                     Chaque carte de créature de votre main a ninjutsu .
                     <img class="color-icon" src="/img/2.png" alt="Icon representing the color blue">
                     <img class="color-icon" src="/img/U.webp" alt="Icon representing the color blue">
                     <img class="color-icon" src="/img/B.webp" alt="Icon representing the color noir">
 
-                </div>
-                <div id="stats">{{creature().stats}}</div>
+                </div> -->
+                <div id="stats" [style.background-color]="backgroundColor()">{{creature().stats}}</div>
             </div>
         </div>
     </div>
