@@ -4,9 +4,9 @@
 
 <div id="card-list">
     @for (creatures of filteredCreatures(); track creatures.name; let i=$index) {
-        <div>
+        <!-- <div>
             Index {{i}}
-        </div>
+        </div> -->
 
         <app-playing-card [creature]="creatures"/>
     } @empty {
@@ -17,6 +17,12 @@
 @if (filteredCreatures().length > 0) {
     <div class="center" *ngIf="filteredCreatures().length > 0 "> J'ai trouvé : {{filteredCreatures().length}} créatures !</div>
 }
+
+
+<div class="center">
+    <button (click)="addCreature()">Add Generic Creature</button>
+    <br />
+</div>
 
 
 
