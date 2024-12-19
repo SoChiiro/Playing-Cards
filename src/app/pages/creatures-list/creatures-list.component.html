@@ -8,7 +8,7 @@
             Index {{i}}
         </div> -->
 
-        <app-playing-card [creature]="creatures"/>
+        <app-playing-card [creature]="creatures" (click)="openCreature(creatures)"/>
     } @empty {
         <div class="center"> Pas de Commandant trouvé !</div>    
     }
@@ -20,7 +20,7 @@
 
 
 <div class="center">
-    <button (click)="addCreature()">Add Generic Creature</button>
+    <button (click)="addCreature()">Add Creature</button>
     <br />
 </div>
 

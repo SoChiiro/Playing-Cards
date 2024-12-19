@@ -4,6 +4,7 @@ import { Creature } from '../../models/creature.models';
 import { CommonModule } from '@angular/common';
 import { PlayingCardComponent } from "../../components/playing-card/playing-card.component";
 import { SearchBarComponent } from "../../components/search-bar/search-bar.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-creatures-list',
@@ -12,8 +13,10 @@ import { SearchBarComponent } from "../../components/search-bar/search-bar.compo
   styleUrl: './creatures-list.component.scss'
 })
 export class CreaturesListComponent {
+  private router = inject(Router);
+
   creature = signal<Creature[]>([]);
-  creatureService = inject(CreaturesService);
+  private creatureService = inject(CreaturesService);
 
   // Search bar
   search = model('');
@@ -35,8 +38,13 @@ export class CreaturesListComponent {
   }
 
   addCreature() {
-    const genericCreature = new Creature();
-    this.creatureService.add(genericCreature);
-    this.creature.set(this.creatureService.getAll());
+    // const genericCreature = new Creature();
+    // this.creatureService.add(genericCreature);
+    // this.creature.set(this.creatureService.getAll());
+    this.router.navigate(['creature']);
+  }
+
+  openCreature(creature : Creature){
+    this.router.navigate(['creature', creature.id]);
   }
 }

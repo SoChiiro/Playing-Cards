@@ -1,7 +1,66 @@
-@if (creatureId()) {
+<!-- @if (creatureId()) {
     <p>Creature {{creatureId()}}</p>
     <button (click)='next()'>Next</button>
 } @else {
     <p>creatures works!</p>
 }
+ -->
 
+<div class="preview">
+    <app-playing-card [creature]="creature"></app-playing-card>
+</div>
+
+<div class="main">
+<form [formGroup]="formGroup" (submit)="submit($event)">
+    <div class="form-field">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" formControlName="name" />
+        @if (isFieldValid('name')) {
+            @if (formGroup.get('name')?.hasError('required')){
+                <div class="error" >This field is required</div>
+            }
+            <!-- @if (formGroup.get('name')?.hasError('')) -->
+        }
+    </div>
+    <div class="form-field">
+        <label for="image">Image</label>
+        <input id="image" name="image" type="file" (change)="onFileChange($event)" />
+        @if (isFieldValid('image')) {
+            <div class="error" >This field is required</div>
+        }
+    </div>
+    <div class="form-field">
+        <label for="capacity">Capacity</label>
+        <input id="capacity" name="capacity" type="text" formControlName="capacity" />
+        @if (isFieldValid('capacity')) {
+            <div class="error" >This field is required</div>
+        }
+    </div>
+    <div class="form-field">
+        <label for="type">Color of the Creature</label>
+        <select id="type" name="type" formControlName="type">
+        @for ( type of creatureTypes; track type) {
+            <option [value]="type">{{type}}</option>
+        }
+        </select>
+    </div>
+    <div class="form-field">
+        <label for="figureCaption">Type of the Creature</label>
+        <input id="figureCaption" name="figureCaption" type="text" formControlName="figureCaption" />
+        @if (isFieldValid('figureCaption')) {
+            <div class="error" >This field is required</div>
+        }
+    </div>
+    <div class="form-field">
+        <label for="stats">Stats</label>
+        <input id="stats" name="stats" type="text" formControlName="stats" />
+        @if (isFieldValid('stats')) {
+            <div class="error" >This field is required</div>
+        }
+    </div>
+    <div class="button-container">
+        <button (click)="navigateBack()"><-Back</button>
+        <button type="submit" [disabled]="formGroup.invalid">Save</button>
+    </div>
+    </form>
+</div>
