@@ -1,0 +1,35 @@
+<app-search-bar 
+    [(search)]="search"
+/>
+
+<div id="card-list">
+    @for (creatures of filteredCreatures(); track creatures.name; let i=$index) {
+        <!-- <div>
+            Index {{i}}
+        </div> -->
+
+        <app-playing-card [creature]="creatures" (click)="openCreature(creatures)"/>
+    } @empty {
+        <div class="center"> Pas de Commandant trouvé !</div>    
+    }
+</div>
+
+@if (filteredCreatures().length > 0) {
+    <div class="center" *ngIf="filteredCreatures().length > 0 "> J'ai trouvé : {{filteredCreatures().length}} créatures !</div>
+}
+
+
+<div class="center">
+    <button (click)="addCreature()">Add Creature</button>
+    <br />
+</div>
+
+
+
+<!-- Barre de recherche -->
+
+    <!-- On peut l'utiliser si on ne met pas de () autour de la variable -->
+    <!-- 2 ways binding -->
+    <!-- (searchChange)="search= $event" -->
+
+
